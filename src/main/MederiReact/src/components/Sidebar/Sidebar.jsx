@@ -5,8 +5,7 @@ import { Nav } from "reactstrap";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import 'assets/css/Estilos_Mederi/StyleMederi.css';
-
-import logo from "/home/daniel/Desktop/MederiV3/src/main/MederiReact/src/assets/img/logo_mederi.png";
+import logo from "assets/img/logo_mederi.png";
 
 var ps;
 
