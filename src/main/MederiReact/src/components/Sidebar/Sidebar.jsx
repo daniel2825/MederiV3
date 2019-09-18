@@ -8,7 +8,7 @@ import 'assets/css/Estilos_Mederi/StyleMederi.css';
 import logo from "assets/img/logo_mederi.png";
 
 var ps;
-
+/* aca deberia detectar algun cambio en el repositorio por parte de jenkins */
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
