@@ -38,7 +38,7 @@ public class MederiV3Application {
 	}
 	
 	@RequestMapping(value = "/daniel")
-	   public String hello(@RequestParam(value="request",defaultValue="Daniel prueba final pasto") String request) {
+	   public String hello(@RequestParam(value="request",defaultValue="Daniel prueba final pasto integracion y despliegue continuo") String request) {
 	    
 		return request;
 
