@@ -36,8 +36,9 @@ public class MederiV3Application {
 	public static void main(String[] args) {
 		SpringApplication.run(MederiV3Application.class, args);
 	}
+	
 	@RequestMapping(value = "/daniel")
-	   public String hello(@RequestParam(value="request",defaultValue="Daniel prueba final pasto 3") String request) {
+	   public String hello(@RequestParam(value="request",defaultValue="Daniel prueba final pasto 32") String request) {
 	    
 		return request;
 
@@ -45,8 +46,10 @@ public class MederiV3Application {
 	
     @CrossOrigin(origins = "http://localhost:3000")/*Origen acceso react para acceso a retorno*/
     @RequestMapping(value="/items", method = RequestMethod.GET)
-      public ArrayList<S3ObjectSummary> getAllItems(){
-    	
+    
+      //public ArrayList<S3ObjectSummary> getAllItems(){   
+      public void getAllItems(){
+    	/*
 		AWSCredentials credentials = new BasicAWSCredentials(
 	  			  "AKIA6RQZXOUO7DFWSRXL", 
 	  			  "Pg8o2P47ghmvN+vm608iggpxn5zois/0IZHes+w6"
@@ -56,10 +59,10 @@ public class MederiV3Application {
 	  			  .standard()
 	  			  .withCredentials(new AWSStaticCredentialsProvider(credentials))
 	  			  .withRegion(Regions.US_EAST_2)
-	  			  .build();
+	  			  .build();*/
 	  
 	  	    /*Listar buckets en listas para formato de json*/
-	  	    ArrayList<Bucket> buckets = (ArrayList<Bucket>) s3client.listBuckets();
+	  	   /* ArrayList<Bucket> buckets = (ArrayList<Bucket>) s3client.listBuckets();
 	  	     for(Bucket bucket : buckets) {
 	  	      System.out.println(bucket.getName());
 	        	}
@@ -71,7 +74,7 @@ public class MederiV3Application {
 	  	      }
 
 	  	     
-			return objects;
+			return objects;*/
        }
 	
    
