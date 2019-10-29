@@ -6,6 +6,11 @@ import { Nav } from "reactstrap";
 import PerfectScrollbar from "perfect-scrollbar";
 import 'assets/css/Estilos_Mederi/StyleMederi.css';
 import logo from "assets/img/logo_mederi.png";
+import Modal from "../Modal/ModalEstructura";
+
+import "assets/css/SelectModerno/css/normalize.css";
+import "assets/css/SelectModerno/css/cs-select.css";
+import "assets/css/SelectModerno/css/cs-skin-underline.css";
 
 var ps;
 /* aca deberia detectar algun cambio en el repositorio por parte de jenkins si esta actualizado*/
@@ -18,6 +23,10 @@ class Sidebar extends React.Component {
   activeRoute(routeName) {
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
   }
+  
+
+ 
+
   /*
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -25,15 +34,12 @@ class Sidebar extends React.Component {
         suppressScrollX: true,
         suppressScrollY: false
       });
-    }
-  }*/
-  componentWillUnmount() {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps.destroy();
-    }
-  }
+    }*/
+  
+
   render() {
     return (
+      
       <div className="sidebar" data-color={this.props.backgroundColor}>
         <div className="logo sinBordes">
           <a
@@ -45,6 +51,8 @@ class Sidebar extends React.Component {
             </div>
           </a>
           
+          <Modal/>
+            
         </div>
         <div className="sidebar-wrapper" >
           <Nav>
@@ -72,7 +80,10 @@ class Sidebar extends React.Component {
             })}
           </Nav>
         </div>
+      
       </div>
+
+      
     );
   }
 }

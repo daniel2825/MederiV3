@@ -523,18 +523,28 @@ EndocarditisProtesisMitral(event){
                   <Row>
 
                     <Col md="12">
-                      <table>
+                      <table className="separacion">
+                        <thead>
+                          <tr>
+                          <td ><label>Equipo utilizado:</label> </td>    
+                          <td ><label>Calidad ventana:</label></td> 
+                          <td ><label>Aréa de realización:</label></td>
+                          <td><label>Transductor: </label></td>
+                         
+                          </tr>
+                        </thead>
+                        <tbody>
                         <tr>
-                          <td><label>Equipo utilizado:</label> </td>
-                          <td>
+                          <td >
+                          <div class="box">
                           <select>
                         <option>Epiq</option>
                         <option>Affiniti 70</option>
                         <option>Affiniti 50</option>
                       </select>
+                      </div>
                           </td>
-                          <td><label>Calidad ventana:</label></td>
-                          <td>
+                          <td >
 
                       <select>
                         <option>Buena</option>
@@ -542,8 +552,7 @@ EndocarditisProtesisMitral(event){
                         <option>Mala</option>
                       </select>
                           </td>
-                          <td>Aréa de realización:</td>
-                          <td>
+                          <td >
                           <select>
                         <option>Laboratorio</option>
                         <option>Uci</option>
@@ -551,7 +560,6 @@ EndocarditisProtesisMitral(event){
                         <option>Hemodinamia</option>
                       </select>
                           </td>
-                          <td><label>Transductor: </label></td>
                           <td>
                           <select>
                         <option>S5-1</option>
@@ -561,20 +569,27 @@ EndocarditisProtesisMitral(event){
                       </select>
                  
                           </td>
-                        </tr>
-                      </table>
-                    </Col>
 
-                  </Row>
+                          </tr>
+                          </tbody>
+                          </table>
 
-                  <Row>
-
-                    <Col md="12">
-                      <table>
-                        <tr>
-                          <td>
-                          <label>SONOGRAFISTA: </label>                  
-                          </td>
+                       </Col>
+                       </Row>
+                       <Row>
+                          <Col md="12">
+                            <table className="separacion">
+                             <thead>
+                               <tr>
+                               <td><label>Sonografista: </label></td>
+                               <td><label>Especialista: </label></td>                       
+                               <td><label>Ritmo cardiaco: </label></td>
+                               </tr>
+                             </thead>
+                             
+                              <tbody>
+                              <tr>
+                         
                           <td>
                            <select value={this.state.Sonografista} onChange={this.Sonografista}>
                              <option>Si</option>
@@ -592,74 +607,54 @@ EndocarditisProtesisMitral(event){
                               :null
                               
                             }
-
-                          <td>
-                          <label>ESPECIALISTA: </label>                  
-                          </td>
-                          <td>
+                            <td>
                        {/*Subir a la base de datos  */}
                            <select value={this.state.Especialista} onChange={this.Especialista}>
                              <option>Jaime Andres Torres</option>
                              <option>Jose Julian Carvajal</option>
                              <option>Santiago Herrera</option>
-                             <option>Nubia Esperanza Carrero</option>                      
+                             <option>Nubia Esperanza Carrero</option>           
+                             <option>Laura Arcos</option>                      
                              </select>              
                           </td>
-                          
-                          <td>
-                          <label>FRECUENCIA CARDIACA: </label>
-                          </td>
-                          <td>
-                          <Input  placeholder="Frecuencia cardiaca" type="text" onChange={this.FrecuenciaCardiaca} value={this.state.FrecuenciaCar}/>                     
-                          </td>
-                          <td>
-                          <h2>{this.state.FrecuenciaCar + " Lpm"}</h2>
-                          </td>
-                          <td>
-                          <label>RITMO CARDIACO: </label>
-                          </td>
                           <td>
 
-                          <select value={this.state.RitmoCar} onChange={this.RitmoCardiaco}>
-                        <option>Sinusal</option>
-                        <option>Marcapaso</option>
-                        <option>Arritmico</option>
-                        <option>Otros</option>
-                      </select>
+<select value={this.state.RitmoCar} onChange={this.RitmoCardiaco}>
+<option>Sinusal</option>
+<option>Marcapaso</option>
+<option>Arritmico</option>
+<option>Otros</option>
+</select>
 
-                          </td>
-                          
+</td>
 
-                    {this.state.RitmoCar == "Arritmico" ?
 
-                        <td>
+{this.state.RitmoCar == "Arritmico" ?
 
-                          <select>
-                            <option>Fibrilación auricular</option>
-                            <option>Extrasistoles ventriculares</option>
-                            <option>Extrasistoles supra ventriculares</option>
-                          </select>
-                        </td>
+<td>
 
-                        : null } 
+<select>
+  <option>Fibrilación auricular</option>
+  <option>Extrasistoles ventriculares</option>
+  <option>Extrasistoles supra ventriculares</option>
+</select>
+</td>
 
-                        { this.state.RitmoCar == "Otros" ?
-                          <td>
-                            <label>Otros:</label>
-                            <Input placeholder="Otros" type="text"/>
-                          </td>
-                          : null}
+: null } 
+
+{ this.state.RitmoCar == "Otros" ?
+<td>
+  <Input placeholder="Otros" type="text"/>
+</td>
+: null}
 
                         </tr>
+                        </tbody>
                       </table>
-                    
-                   </Col>
-
-
-
+                    </Col>
 
                   </Row>
-              
+
 
                 </CardBody>
               </Card>
@@ -676,134 +671,45 @@ EndocarditisProtesisMitral(event){
             <Col md="12">
               <Card>
 
-
-
-                <CardHeader>
-                  <h5 className="title">Información del paciente</h5>
-                </CardHeader>
-
                 <CardBody>
                   <Form>
-                    <Row>
-                      <Col md="12">
-                        <table>
-                          <tr>
-                          <td><label>Nombre:</label></td>
-                          <td>
-                          <Input placeholder="Nombre" type="text"/>
-                          </td>
-                          <td><label>Identificación:</label></td>
-                          <td>
-                          <Input placeholder="Identificación" type="text"/>
-                          </td>
-                          <td><label>Cama:</label></td>
-                          <td>
-                          <Input placeholder="Cama" type="text" />
-                          </td>
-                          <td><label>Fecha de realización:</label></td>
-                          <td>
-                          <Input placeholder="Fecha de realización" type="date"/>
-                          </td>
-                          <td><label>Fecha de nacimiento:</label></td>
-                          <td>
-                          <Input placeholder="Fecha de nacimiento" type="date"/>
-                          </td>
-                          </tr>
-                         </table>
-                         <table>
-                          <tr>
-                            <td><label>Genero: </label></td>
-                            <td>
-                            <select>
-                            <option>Masculino</option>
-                            <option>Femenino</option>
-                          </select>
-                            </td>
-                            <td><label>Peso (Kg): </label></td>
-                            <td>
-                            <Input placeholder="Peso (Kg)" type="number" value={this.state.Peso} onChange={this.Pesoevent}/>
-                            </td>
-                            <td><label>Talla: </label></td>
-                            <td>
-                            <Input placeholder="Talla" type="number" value={this.state.Talla} onChange={this.TallaEvent}/>
-                            </td>
-                            <td><label>Superficie corporal: </label>
-                            <h2>{(0.007184 * Math.pow(this.state.Peso, 0.425) * Math.pow(this.state.Talla, 0.725)).toFixed(2)}</h2>
-                            
-                            </td>
-                          </tr>
-                          </table>
-                      </Col>
-
-                    </Row>
-  
-                    <Row>
-
-                      <Col md="12">
-                        <table>
-                          <tr>
-                          <td><label>Comprobador</label></td>
-                          <td>
-                          <select onChange={this.Comprobador} value={this.state.Comprobador} >
-                            <option>Nueva eps</option>
-                            <option>Compensar</option>
-                            <option>Sanitas</option>
-                            <option>Coomeva</option>
-                            <option>C.de Transplantes</option>
-                            <option>Otros</option>
-                   
-                          </select></td>
-                          {
-                            this.state.Comprobador == "Otros" ?
-                            <td>
-                            <Input placeholder="Otros" type="text" />       
-                            </td>
-                            :null
-                          }
-                      
-                          <td><label>Indicación</label></td>
-                          <td>
-                          <Input placeholder="Indicación" type="text" />
-                          </td>
-
-                      <td><label>Tensión arterial</label></td>
-                      <td>
-                      <Input placeholder="Tensión arterial" type="text"/>
-                      </td>
-
-                      <td><label>Saturación</label></td>
-                      <td>
-                      <Input placeholder="Saturación %" type="text"/>
-                      </td>
-                     </tr>        
-                    </table>
-                    </Col>  
-                    </Row>
 
                     <Row>
 
-                    <Col md="3">
-                      <h5 className="title">VENTRÍCULO IZQUIERDO</h5>
+                    <Col md="12">
+                      <h5 className="title">Ventrículo izquierdo</h5>
                     </Col>
 
                   </Row>
                   <Row>
-                    <Col md="3">
-                      <label>MASA DE VENTRICULO IZQUIERDO</label>
-                      <Input placeholder="Masa de ventriculo izquierdo" type="text"/>
+                    <Col md="5">
+                      <div class="containerTooltip">
+                                <Input placeholder="Masa de ventriculo izquierdo" type="text" />
+                                <p class="hovTol1">Masa de ventriculo izquierdo</p>
+                              </div>
+                           
 
                     </Col>
                     </Row>
                     <Row>
-                    <Col md="3">
+                    <Col md="12">
                       <h5 className="title">Contractilidad</h5>
                     </Col>
                     </Row>
                     <Row>
                       <Col md="12">
                       <table>
+                        <thead>
+                          <tr>
+                            <td><label>Pared anterior:</label></td>
+                            <td></td>
+                            <td><label>Pared antero septal:</label></td>
+                            <td></td>
+                            <td><label>Pared infero septal:</label></td>
+                          </tr>
+                        </thead>
+                        <tbody>
                         <tr>
-                          <td><label>PARED ANTERIOR</label></td>
                           <td>
                           <select onChange={this.ParedAnterior} value={this.state.ParedAnterior}>
                             <option>Normal</option>
@@ -813,6 +719,7 @@ EndocarditisProtesisMitral(event){
                             <option>No valorable</option>
                             <option>Otro</option>                           
                           </select>
+                          
                           </td>
                           {
                             <td>
@@ -820,7 +727,6 @@ EndocarditisProtesisMitral(event){
                             </td>
                           }
 
-                          <td><label>PARED ANTERO SEPTAL</label></td>
                           <td>
                           <select onChange={this.ParedAnteroSeptal} value={this.state.ParedAnteroSeptal}>
                             <option>Normal</option>
@@ -836,8 +742,6 @@ EndocarditisProtesisMitral(event){
                             <Input placeholder={this.state.ParedAnteroSeptal} type="text"/>
                             </td>
                           }
-
-                         <td><label>PARED INFERO SEPTAL</label></td>
                           <td>
                           <select onChange={this.ParedInferoSeptal} value={this.state.ParedInferoSeptal}>
                             <option>Normal</option>
@@ -852,11 +756,29 @@ EndocarditisProtesisMitral(event){
                             <td>
                             <Input placeholder={this.state.ParedInferoSeptal} type="text"/>
                             </td>
-                          }
-                        </tr>
-                        <tr>
+                          }  
 
-                         <td><label>PARED INFERIOR</label></td>
+                        </tr>   
+                        </tbody>
+                        </table>
+                        </Col>
+                        </Row>
+                        <Row>
+                          <Col md="12">
+                        <table>
+                         <thead>
+                           <tr>
+                            <td><label>Pared inferior:</label></td>
+                            <td></td>
+                            <td><label>Pared infero lateral:</label></td>
+                            <td></td>
+                            <td><label>Pared antero lateral:</label></td>
+                           </tr>
+                         </thead>
+                         <tbody>
+                        <tr>
+                          
+
                           <td>
                           <select onChange={this.ParedInferior} value={this.state.ParedInferior}>
                             <option>Normal</option>
@@ -873,8 +795,7 @@ EndocarditisProtesisMitral(event){
                             </td>
                           }
 
-                         <td><label>PARED INFERO LATERAL</label></td>
-                          <td>
+<td>
                           <select onChange={this.ParedInferoLateral} value={this.state.ParedInferoLateral}>
                             <option>Normal</option>
                             <option>Aquinesia</option>
@@ -891,7 +812,6 @@ EndocarditisProtesisMitral(event){
                           }
 
 
-                         <td><label>PARED ANTERO LATERAL</label></td>
                           <td>
                           <select onChange={this.ParedAnteroLateral} value={this.state.ParedAnteroLateral}>
                             <option>Normal</option>
@@ -907,40 +827,68 @@ EndocarditisProtesisMitral(event){
                             <Input placeholder={this.state.ParedAnteroLateral} type="text"/>
                             </td>
                           }
-                        </tr>
-                      </table>
-
-                      </Col>
-                  </Row>
+                          </tr>
+                          </tbody>
+                          </table>
+                          </Col>
+                          </Row>
+                        
                   <Row>
-                    <Col md="3">
-                      <label>Apex:</label>
-                      <Input placeholder="Apex" type="text" value="No se logra adecuada valoración por esta técnica"/>
+                    <Col md="12">
+                      <table>
+                        <tr>
+                      <td><label>Apex:</label><Input placeholder="Apex" type="text" value="No se logra adecuada valoración por esta técnica"/></td>
+                      </tr>
+                      </table>
                     </Col>
                   </Row>
+                  <Row>
+                    <Col md="12">
+                    <h5 className="title">Función diastolica</h5>
+                    </Col>                    
+                  </Row>
 
                   <Row>
-                    <Col md="8">
+                    <Col md="12">
                       <table>
                         <tr>
                           <td>
-                            <label>FUNCIÓN DIASTOLICA:</label>
+                          <div class="containerTooltip">
+                               <Input placeholder="Onda E cm/seg" type="text" />
+                               <p class="hovTol1">Onda E cm/seg</p>
+                              </div>
+                           
+                           </td>
+                          <td>
+
+                          <div class="containerTooltip">
+                              <Input placeholder="Onda A cm/seg" type="text" />
+                               <p class="hovTol1">Onda A cm/seg</p>
+                              </div>
                           </td>
                           <td>
-                            <Input placeholder="Onda E cm/seg" type="text" />
+
+                          <div class="containerTooltip">
+                          <Input placeholder="Relación E/A" type="text" />
+                               <p class="hovTol1">Relación E/A</p>
+                              </div>
+                          
                           </td>
                           <td>
-                            <Input placeholder="Onda A cm/seg" type="text" />
-                          </td>
-                          <td>
-                            <Input placeholder="Relación E/A" type="text" />
-                          </td>
-                          <td>
-                            <Input placeholder="Promedio relación E/E" type="text" />
+
+                          <div class="containerTooltip">
+                          <Input placeholder="Promedio relación E/E" type="text" />
+                               <p class="hovTol1">Promedio relación E/E</p>
+                              </div>
                           </td>
                         </tr>
                         </table>
+                        </Col>
+                        </Row>
+                        <Row>
+                          <Col md="12">
                         <table>
+                         <tbody>
                         <tr>
                           <td>
                             <select value={this.state.EfuncionDiastolica} onChange={this.EfuncionDiastolica}>
@@ -957,14 +905,14 @@ EndocarditisProtesisMitral(event){
                            }
                           {
                             this.state.EfuncionDiastolica == 'Anormal' ?
-                            <div>
+                            <td>
                               <select value={this.state.VDisfuncion} onChange={this.VDisfuncion}>
                                 <option>Disfunción tipo I</option>
                                 <option>Disfunción tipo II</option>
                                 <option>Disfunción tipo III</option>
                                 <option>Otros</option>
                               </select>
-                            </div>
+                            </td>
                             : null}
 
                           {
@@ -977,12 +925,15 @@ EndocarditisProtesisMitral(event){
                               : null
                           }
                           <td>
-                          <label>Strain longitudinal global:</label>      
-                          </td>
-                          <td>
-                             <Input placeholder="Strain longitudinal" type="text"/>
+
+                          <div class="containerTooltip">
+                          <Input placeholder="Strain longitudinal" type="text"/>
+                               <p class="hovTol1">Strain longitudinal</p>
+                              </div>
+                          
                           </td>
                         </tr>
+                        </tbody>
                       </table>
 
                     </Col>
@@ -1013,7 +964,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>VENTRÍCULO DERECHO (Eje largo):</label>
+                                  <label>Ventrículo derecho(Eje largo):</label>
                                 </FormGroup>
 
 
@@ -1038,7 +989,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>SEPTUM INTERVENTRICULAR EN DIÁSTOLE:</label>
+                                  <label>Septum interventricular en diástole:</label>
                                 </FormGroup>
 
                               </td>
@@ -1068,7 +1019,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>VENTRÍCULO IZQUIERDO EN DIÁSTOLE:</label>
+                                  <label>Ventrículo izquiero en diástole:</label>
                                 </FormGroup>
 
                               </td>
@@ -1099,7 +1050,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>PARED POSTERIOR:</label>
+                                  <label>Pared posterior</label>
                                 </FormGroup>
 
                               </td>
@@ -1131,7 +1082,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>PARED POSTERIOR:</label>
+                                  <label>Pared posterior:</label>
                                 </FormGroup>
 
                               </td>
@@ -1162,7 +1113,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>VENTRÍCULO IZQUIERDO DIÁMETRO SISTÓLICO:</label>
+                                  <label>Ventrículo izquierdo diámetro sistólico:</label>
                                 </FormGroup>
 
                               </td>
@@ -1193,7 +1144,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>AURICULA IZQUIERDA DIÁMETRO:</label>
+                                  <label>Auricula izquierda diámetro:</label>
                                 </FormGroup>
 
                               </td>
@@ -1225,7 +1176,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>RAÍZ AORTICA (Senos de valsalva):</label>
+                                  <label>Raíz aortica (Senos de valsalva):</label>
                                 </FormGroup>
 
                               </td>
@@ -1276,7 +1227,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>APERTURA AORTICA:</label>
+                                  <label>Apertura aortica:</label>
                                 </FormGroup>
 
                               </td>
@@ -1306,18 +1257,13 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>AURICULA IZQUIERDA ÁREA:</label>
+                                  <label>Auricula izquierda área:</label>
                                 </FormGroup>
 
                               </td>
 
-
                               <td>
-                                <Input
-                                  placeholder="MEDIDAS"
-                                  type="text"
-                                />
-
+                                <Input placeholder="MEDIDAS" type="text"/>
                               </td>
 
                               <td>
@@ -1336,7 +1282,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>VOLUMEN INDEXADO DE AURICULA IZQUIERDA:</label>
+                                  <label>Volumen indexado de auricula izquierda:</label>
                                 </FormGroup>
 
                               </td>
@@ -1370,7 +1316,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>VOLUMEN FIN DIÁSTOLE VI:</label>
+                                  <label>Volumen fin diástole VI:</label>
                                 </FormGroup>
 
                               </td>
@@ -1402,7 +1348,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>VOLUMEN FIN SÍSTOLE VI:</label>
+                                  <label>Volumen fin sístole VI:</label>
                                 </FormGroup>
 
                               </td>
@@ -1433,7 +1379,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>FRACCIÓN DE EYECCIÓN:</label>
+                                  <label>Fracción de eyección:</label>
                                 </FormGroup>
 
                               </td>
@@ -1465,7 +1411,7 @@ EndocarditisProtesisMitral(event){
                               <td>
 
                                 <FormGroup>
-                                  <label>AURICULA DERECHA ÁREA:</label>
+                                  <label>Auricula derecha área:</label>
                                 </FormGroup>
 
                               </td>
@@ -1504,30 +1450,46 @@ EndocarditisProtesisMitral(event){
                 <CardBody>
                 <Row>
                     <Col md="3">
-                      <h5 className="title">VÁLVULAS</h5>
+                      <h5 className="title">Válvulas</h5>
                     </Col>
                   </Row>
                   <Row>
-                    <Col md="4">
+                    <Col sm="12" md="6" lg="6">
                       <table>
                         <tr>
-                          <td>
-                            <label>AÓRTICA</label>
+                        <td>
+                          <label>Aórtica:</label>
                           </td>
                           <td>
+
+                      <div class="containerTooltip">
                             <Input placeholder="V maxima" type="text" />
+                                <p class="hovTol1">V maxima</p>
+                              </div>
                           </td>
                           <td>
-                            <Input placeholder="Gradiente pico" type="text" />
+                          <div class="containerTooltip">
+                          <Input placeholder="Gradiente pico" type="text" />
+                                <p class="hovTol1">Gradiente pico</p>
+                              </div>
+                    
                           </td>
                           <td>
-                            <Input placeholder="Gradiente medio" type="text" />
+                          <div class="containerTooltip">
+                          <Input placeholder="Gradiente medio" type="text" />
+                                <p class="hovTol1">Gradiente medio</p>
+                              </div>
+                    
                           </td>
                         </tr>
+                        
                       </table>
                     </Col>
-                    <Col md="8">
+                    <Col md="4">
                       <table>
+                        <thead>
+                          
+                        </thead>
                         <tr>
                           <td>
                             <label>Protesis:</label>
@@ -1568,7 +1530,19 @@ EndocarditisProtesisMitral(event){
                               <option>No</option>
                             </select>
                           </td>
-                          <td>
+                          
+                        </tr>
+                      </table>
+
+                      
+
+                    </Col>
+
+                  </Row>
+                  <Row>
+                    <Col md="12">
+                    <tr>
+                        <td>
                             <select value={this.state.ValvulaAorticaAnormal} onChange={this.ValvulaAorticaAnormal}>
                               <option>Normal</option>
                               <option>Anormal</option>
@@ -1624,13 +1598,8 @@ EndocarditisProtesisMitral(event){
                               : null
                           }
            
-                        </tr>
-                      </table>
-
-                      
-
+                         </tr>
                     </Col>
-
                   </Row>
                   <Row>
                     
@@ -1649,29 +1618,43 @@ EndocarditisProtesisMitral(event){
                   </Row>
 
                   <Row>
-                    <Col md="4">
+                    <Col md="6">
                       <table>
                         <tr>
                           <td>
-                            <label>MITRAL:</label>
+                            <label>Mitral:</label>
                           </td>
                           <td>
-                            <Input placeholder="V maxima" type="text" />
+
+                      <div class="containerTooltip">
+                          <Input placeholder="V maxima" type="text" />
+                                <p class="hovTol1">V maxima</p>
+                              </div>
                           </td>
                           <td>
-                            <Input placeholder="Gradiente pico" type="text" />
+
+                      <div class="containerTooltip">
+                      <Input placeholder="Gradiente pico" type="text" />
+                                <p class="hovTol1">Gradiente pico</p>
+                              </div>
                           </td>
                           <td>
-                            <Input placeholder="Gradiente medio" type="text" />
+
+                      <div class="containerTooltip">
+                      <Input placeholder="Gradiente medio" type="text" />
+                                <p class="hovTol1">Gradiente medio</p>
+                              </div>
                           </td>
                         </tr>
                       </table>
                     </Col>
-                    <Col md="8">
+                    <Col md="4">
                       <table>
                         <tr>
                         <td>
-                            <label>Protesis:</label>
+                          <label>Protesis:</label>
+                          </td>
+                          <td>
                             <select value={this.state.ProtesisMitral} onChange={this.ProtesisMitral} >
                               <option>Si</option>
                               <option>No</option>
@@ -1708,7 +1691,19 @@ EndocarditisProtesisMitral(event){
                             </select>
                           </td>
                          
-                          <td>
+                         
+
+                        </tr>
+                      </table>
+
+                    </Col>
+
+                  </Row>
+                  <Row>
+                    <Col md="12">
+                    <table>
+                      <tr>
+                    <td>
                             <select value={this.state.ValvulaMitralAnormal} onChange={this.ValvulaMitralAnormal}>
                               <option>Normal</option>
                               <option>Anormal</option>
@@ -1765,40 +1760,51 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
-
-
                         </tr>
-                      </table>
-
+                     </table>
+                    
                     </Col>
-
                   </Row>
 
-
                   <Row>
+                    <Col md="6">
+                      <table>
+                        <tr>
+                          <td>
+                            <label>Tricuspide:</label>
+                          </td>
+                          <td>
+                          
+                      <div class="containerTooltip">
+                      <Input placeholder="V maxima" type="text" />     
+                         <p class="hovTol1">V maxima</p>
+                              </div>
+                          </td>
+                          <td>
+                          <div class="containerTooltip">
+                          <Input placeholder="Gradiente pico" type="text" />
+                          <p class="hovTol1">Gradiente pico</p>  
+                                 </div>
+                  
+                          </td>
+                          <td>
+                          <div class="containerTooltip">
+                          <Input placeholder="Gradiente medio" type="text" />
+                          <p class="hovTol1">Gradiente medio</p>  
+                       
+                                 </div>
+                  
+                          </td>
+                        </tr>
+                      </table>
+                    </Col>
                     <Col md="4">
                       <table>
                         <tr>
                           <td>
-                            <label>TRICUSPIDE:</label>
-                          </td>
-                          <td>
-                            <Input placeholder="V maxima" type="text" />
-                          </td>
-                          <td>
-                            <Input placeholder="Gradiente pico" type="text" />
-                          </td>
-                          <td>
-                            <Input placeholder="Gradiente medio" type="text" />
-                          </td>
-                        </tr>
-                      </table>
-                    </Col>
-                    <Col md="8">
-                      <table>
-                        <tr>
-                          <td>
                             <label>Protesis:</label>
+                            </td>
+                            <td>
                             <select value={this.state.ProtesisTricuspide} onChange={this.ProtesisTricuspide}>
                               <option>Si</option>
                               <option>No</option>
@@ -1833,8 +1839,15 @@ EndocarditisProtesisMitral(event){
                               <option>No</option>
                             </select>
                           </td>
-                         
-                          <td>
+                         </tr>
+                         </table>
+                          </Col>
+                          </Row>
+                          <Row>
+                            <Col md="12">
+                              <table>
+                              <tr>
+                            <td>
                             <select value={this.state.ValvulaTricuspideAnormal} onChange={this.ValvulaTricuspideAnormal}>
                               <option>Normal</option>
                               <option>Anormal</option>
@@ -1857,8 +1870,14 @@ EndocarditisProtesisMitral(event){
                                 </select>
                               </td>
 
-                              : <Input placeholder="PSAP: MMHG" type="text" />
-
+                              :
+                              
+                              <td>
+                      <div class="containerTooltip">
+                       <Input placeholder="PSAP: MMHG" type="text" />
+   <p class="hovTol1">PSAP: MMHG</p>
+                    </div>
+                    </td>
                           }
                           {
                             this.state.ValvulaTricuspideIE == "Insuficiencia" && this.state.ValvulaTricuspideAnormal == "Anormal" ?
@@ -1904,31 +1923,46 @@ EndocarditisProtesisMitral(event){
 
 
 
+
                   <Row>
-                    <Col md="4">
+                    <Col md="6">
                       <table>
                         <tr>
                           <td>
-                            <label>PULMONAR:</label>
+                            <label>Pulmonar:</label>
                           </td>
                           <td>
-                            <Input placeholder="V maxima" type="text" />
+                            
+                      <div class="containerTooltip">
+                             <Input placeholder="V maxima" type="text" />
+                                <p class="hovTol1">V maxima</p>
+                              </div>
                           </td>
                           <td>
-                            <Input placeholder="Gradiente pico" type="text" />
+                          <div class="containerTooltip">
+                          <Input placeholder="Gradiente pico" type="text" />
+                                <p class="hovTol1">Gradiente pico</p>
+                              </div>
+                      
                           </td>
                           <td>
-                            <Input placeholder="Gradiente medio" type="text" />
+                          <div class="containerTooltip">
+                          <Input placeholder="Gradiente medio" type="text" />
+                                <p class="hovTol1">Gradiente medio</p>
+                              </div>
+                      
                           </td>
                         </tr>
                       </table>
                     </Col>
-                    <Col md="8">
+                    <Col md="4">
                       <table>
                         <tr>
                           
                         <td>
                             <label>Protesis:</label>
+                            </td>
+                            <td>
                             <select value={this.state.ProtesisPulmonar} onChange={this.ProtesisPulmonar}>
                               <option>Si</option>
                               <option>No</option>
@@ -1964,6 +1998,15 @@ EndocarditisProtesisMitral(event){
                               <option>No</option>
                             </select>
                           </td>
+                          </tr>
+                          </table>
+                          </Col>
+                          </Row>
+                          <Row>
+                            <Col md="12">
+                              <table>
+                                <tr>
+                          
                          
                           
                           <td>
@@ -2033,7 +2076,7 @@ EndocarditisProtesisMitral(event){
 
                   <Row>
                     <Col md="12">
-                      <h5 className="title">VENTRICULO DERECHO</h5>
+                      <h5 className="title">Ventriculo derecho</h5>
                     </Col>
                   </Row>
 
@@ -2041,9 +2084,6 @@ EndocarditisProtesisMitral(event){
                     <Col md="12">
                       <table>
                         <tr>
-                          <td>
-                            <label>Derecho:</label>
-                          </td>
                           <td>
                             <select value={this.state.VentriculoIzquierdo} onChange={this.VentriculoIzquierdo}>
                               <option>Normal</option>
@@ -2062,30 +2102,30 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
+                        
                           <td>
-                            <label>Tapse:</label>
+
+                          <div class="containerTooltip">
+                          <Input placeholder="Tapse" type="text" />
+                                <p class="hovTol1">Tapse</p>
+                              </div>
+
                           </td>
 
                           <td>
-                            <Input placeholder="Tapse" type="text" />
-                          </td>
 
-
-                          <td>
-                            <label>Tisular del anillo:</label>
-                          </td>
-
-                          <td>
-                            <Input placeholder="Tisular del anillo" type="text" />
-                          </td>
-
-
-                          <td>
-                            <label>Cambio fraccional de area:</label>
+                          <div class="containerTooltip">
+                          <Input placeholder="Tisular del anillo" type="text" />
+                                <p class="hovTol1">Tisular del anillo</p>
+                              </div>
                           </td>
 
                           <td>
-                            <Input placeholder="Cambio fraccional de area" type="text" />
+
+                      <div class="containerTooltip">
+                      <Input placeholder="Cambio fraccional de area" type="text" />
+                                <p class="hovTol1">Cambio fraccional de area</p>
+                              </div>
                           </td>
 
 
@@ -2094,28 +2134,23 @@ EndocarditisProtesisMitral(event){
                     </Col>
 
                   </Row>
-
-
+                      
                   <Row>
-                    <Col md="4">
-                      <h5 className="title">AURICULAS</h5>
-                    </Col>
-
-                    <Col md="6">
-                      <h5 className="title">SEPTUM</h5>
-                    </Col>
-                  </Row>
-
-
-                  <Row>
-                    <Col md="12">
+                    <Col sm="12" lg="6" md="12">
                       <table>
+                        
+                        <thead>
+                          
+                          <tr>
+                            <td><label>Izquierda:</label></td>   
+                            <td></td>
+                            <td><label>Derecha:</label></td>
+                          </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                           <td>
-                            <label>Izquierda:</label>
-                          </td>
-                          <td>
-                            <select value={this.state.AuriculaIzquierda} onChange={this.AuriculaIzquierda}>
+                            <select className="TamSelect" value={this.state.AuriculaIzquierda} onChange={this.AuriculaIzquierda}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2134,10 +2169,7 @@ EndocarditisProtesisMitral(event){
                           }
 
                           <td>
-                            <label>Derecha:</label>
-                          </td>
-                          <td>
-                            <select value={this.state.AuriculaDerecha} onChange={this.AuriculaDerecha}>
+                            <select className="TamSelect" value={this.state.AuriculaDerecha} onChange={this.AuriculaDerecha}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2154,11 +2186,25 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
-                       <td>
-                            <label>Septum interauricular:</label>
-                          </td>
+                          </tr>
+                        </tbody>
+                        </table>
+                       </Col>
+                        <Col sm="12" lg="6" md="12">
+                        <table>
+                        
+                        <thead>
+                          
+                          <tr>
+                            <td colspan="2"><label>Septum interauricular:</label></td>
+                            <td colspan="2"><label>Septum interventicular:</label></td>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
                           <td>
-                            <select value={this.state.SeptumInterauricular} onChange={this.SeptumInterauricular}>
+                            <select className="TamSelect" value={this.state.SeptumInterauricular} onChange={this.SeptumInterauricular}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2177,10 +2223,7 @@ EndocarditisProtesisMitral(event){
                           }
 
                           <td>
-                            <label>Septum interventicular:</label>
-                          </td>
-                          <td>
-                            <select value={this.state.SeptumInterventicular} onChange={this.SeptumInterventicular}>
+                            <select className="TamSelect" value={this.state.SeptumInterventicular} onChange={this.SeptumInterventicular}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2198,14 +2241,30 @@ EndocarditisProtesisMitral(event){
                               : null
                           }
                         </tr>
-                        
-                        <tr>
-                          
-                        <td>
-                            <label>Pericardio:</label>
-                          </td>
+                        </tbody>
+                        </table>
+                     
+                        </Col>
+                     
+                       </Row>
+                       
+                       <Row>
+                       <Col sm="12" lg="6" md="12">
+                         <table>
+                           <thead>
+                             <tr>
+                             <td><label>Pericardio:</label></td>
+                                 <td></td>
+                                 <td><label>Vena cava inferior:</label></td>
+                             
+                             </tr>
+                           </thead>
+                           <tbody>
+                             <tr>
+
+
                           <td>
-                            <select value={this.state.Pericardio} onChange={this.Pericardio}>
+                            <select className="TamSelect" value={this.state.Pericardio} onChange={this.Pericardio}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2222,13 +2281,8 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
-
-
-                        <td>
-                            <label>Vena cava inferior:</label>
-                          </td>
                           <td>
-                            <select value={this.state.VenaCavaInferior} onChange={this.VenaCavaInferior}>
+                            <select className="TamSelect" value={this.state.VenaCavaInferior} onChange={this.VenaCavaInferior}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2245,13 +2299,28 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
+  
+                                 </tr>
+                               </tbody>
+                             </table>
 
+                         </Col> 
+                         <Col sm="12" lg="6" md="12">
 
-                        <td>
-                            <label>A. aorta:</label>
-                          </td>
-                          <td>
-                            <select value={this.state.A_aorta} onChange={this.A_aorta}>
+                         <table>
+                           <thead>
+                             <tr>
+                                 <td><label>A. aorta:</label></td>
+                                 <td></td>
+                                 <td><label>A. pulmonar:</label></td>
+                          
+                             </tr>
+                           </thead>
+                           <tbody>
+                             <tr>
+
+                                 <td>
+                            <select className="TamSelect" value={this.state.A_aorta} onChange={this.A_aorta}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2268,13 +2337,8 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
-
-
-                        <td>
-                            <label>A. pulmonar:</label>
-                          </td>
                           <td>
-                            <select value={this.state.A_pulmonar} onChange={this.A_pulmonar}>
+                            <select className="TamSelect" value={this.state.A_pulmonar} onChange={this.A_pulmonar}>
                               <option>Normal</option>
                               <option>Anormal</option>
                             </select>
@@ -2292,13 +2356,14 @@ EndocarditisProtesisMitral(event){
                               </td>
                               : null
                           }
-                        </tr>
-                        </table>
-                      
-                       </Col>
+                        
+                                 </tr>
+                               </tbody>
+                             </table>
 
-                  </Row>
 
+                         </Col>
+                         </Row> 
 
                   <Row>
 

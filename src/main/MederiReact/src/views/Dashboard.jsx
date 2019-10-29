@@ -48,6 +48,8 @@ class Dashboard extends React.Component {
         />
         <div className="content">
           <Row>
+
+            
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>

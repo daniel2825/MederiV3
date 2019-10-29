@@ -70,108 +70,92 @@ class User extends React.Component {
                   <h5 className="title">PRUEBA DE ESFUERZO</h5>
                 </CardHeader>
               
-                <CardHeader>
-                  <h5 className="title">Información del paciente</h5>
-                </CardHeader>
-              
                 <CardBody>
                   <Form>
                     
                   <Row>
-                    <Col md="3">
-                      <label>EQUIPO UTILIZADO: </label>
-                      <select>
-                        <option>Epiq</option>
-                        <option>Affiniti 70</option>
-                        <option>Affiniti 50</option>
-                      </select>
-                    </Col>
-                    <Col md="3">
-                      <label>CALIDAD VENTANA: </label>
-                      <select>
-                        <option>Buena</option>
-                        <option>Regular</option>
-                        <option>Mala</option>
-                      </select>
-                    </Col>
-                    <Col md="3">
-                      <label>AREA DE REALIZACIÓN: </label>
-                      <select>
-                        <option>Laboratorio</option>
-                        <option>Uci</option>
-                        <option>Salas de Cx</option>
-                        <option>Hemodinamia</option>
-                      </select>
-                    </Col>
-                    <Col md="3">
-                      <label>TRANSDUCTOR: </label>
-                      <select>
-                        <option>X5-1</option>
-                        <option>2</option>
-                        <option>3</option>
-                      </select>
+                    <Col md="12">
+                      <table>
+                        <thead>
+                          <tr>
+                            <td><label>Equipo utilizado:</label></td>
+                            <td><label>Calidad ventana:</label></td>
+                            <td><label>Area realización:</label></td>
+                            <td><label>Transductor:</label></td>
+                            <td><label>Factores de riesgo:</label></td>
+                            <td><label>Protocolo:</label></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <select>
+                                <option>Epiq</option>
+                                <option>Affiniti 70</option>
+                                <option>Affiniti 50</option>
+                              </select>
+                            </td>
+                            <td>
+                              <select>
+                                <option>Buena</option>
+                                <option>Regular</option>
+                                <option>Mala</option>
+                              </select>
+                            </td>
+                            <td>
+                               <select>
+                                  <option>Laboratorio</option>
+                                  <option>Uci</option>
+                                  <option>Salas de Cx</option>
+                                  <option>Hemodinamia</option>
+                              </select>
+                            </td>
+                            <td>
+                              <select>
+                                <option>X5-1</option>
+                                <option>2</option>
+                                <option>3</option>
+                              </select>
+                            </td>
+                            <td>
+                              <select>
+                                <option>HTA</option>
+                                <option>Tabaco</option>
+                                <option>Colesterol</option>
+                                <option>Diabetes</option>
+                                <option>Obesidad</option>
+                                <option>Estrés</option>
+                              </select>
+                            </td>
+                            <td>
+                              <select>
+                                <option>Bruce</option>
+                                <option>Bruce modificado</option>
+                                <option>Naughton</option>
+                                <option>Cornell</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </Col>
                   </Row>
 
-                  <Row>
-                  <Col md="2">
-                        <FormGroup>
-                          <label>Peso (Kg): </label>
-                          <Input placeholder="Peso (Kg)" type="number" value={this.state.Peso} onChange={this.Pesoevent}/>
-                        </FormGroup>
-                      </Col>
-
-                      <Col md="2">
-                        <FormGroup>
-                          <label>Talla: </label>
-                          <Input placeholder="Talla" type="number" value={this.state.Talla} onChange={this.TallaEvent} />
-                        </FormGroup>
-                      </Col>
-
-                      <Col md="2">
-                        <FormGroup>
-                          <label>Superficie corporal: </label>
-                          <h2>{(0.007184 * Math.pow(this.state.Peso, 0.425) * Math.pow(this.state.Talla, 0.725)).toFixed(2)}</h2>
-                        </FormGroup>
-                      </Col>
-
-
-                      <Col md="2">
-                          <label>Edad: </label>
-                          <Input placeholder="Edad" type="number" value={this.state.edad} onChange={this.edad} />
-                      </Col>
-                    
-                  </Row>
-
-                  <Row>
-                    <Col md="2">
-                      <label>Factores de riesgo:</label>
-                      <select>
-                        <option>HTA</option>
-                        <option>Tabaco</option>
-                        <option>Colesterol</option>
-                        <option>Diabetes</option>
-                        <option>Obesidad</option>
-                        <option>Estrés</option>
-                      </select>
-                    </Col>
-
-                    <Col md="3">
-                      <label>Protocolo:</label>
-                      <select>
-                        <option>Bruce</option>
-                        <option>Bruce modificado</option>
-                        <option>Naughton</option>
-                        <option>Cornell</option>
-                      </select>
-                    </Col>
-
-                  </Row>
                   <Row>
                   <Col md="12">
                       <h5 className="title">Frecuencia cardiaca maxima</h5>
                   </Col>
                   </Row>
+
+                  <Row>
+                      <Col md="2">
+                         <div class="containerTooltip">
+                            <Input placeholder="Edad" type="number" value={this.state.edad} onChange={this.edad} />
+                            <p class="hovTol1">Edad</p>
+                         </div>
+                      </Col>
+                  </Row>
+
                   <Row>
                   <Col md="2">
                       <label>Femenino:</label>

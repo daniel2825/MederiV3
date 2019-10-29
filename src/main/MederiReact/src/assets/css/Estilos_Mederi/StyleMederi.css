@@ -6,3 +6,68 @@
     background-color: white;
 
 }
+
+.TamSelect{
+    width: 140px;
+}
+.containerTooltip{
+    padding: 0px; 
+    position: relative;
+    display: inline-block;
+    border:none;
+    margin: 0px;
+}
+
+.hovTol1{
+    display: none ; 
+    z-index: 1999 ;
+}
+
+.containerTooltip input:focus + .hovTol1{
+   
+    display: block;
+    position: absolute;
+    top:35px;
+    left: 0px;
+    background: #373739;
+    border: 1px solid #6d6e71;
+    border-top-color: #373739;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px 15px;
+
+}
+@media screen and (max-width: 600px) {
+    table {
+        width:100%;
+    }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight:bold;
+        font-size:1.3em;
+    }
+    tbody td {
+        display: block;
+        text-align:center;
+    }
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
+    }
+}
+
+.separacion{
+    border-collapse: separate !important;
+    border-spacing: 10px 5px !important;
+}
